@@ -1,0 +1,40 @@
+PODS:
+  - appstore-card-transition (1.0.4)
+  - ImageSlideshow/Core (1.9.2)
+  - ImageSlideshow/SDWebImage (1.9.2):
+    - ImageSlideshow/Core
+    - SDWebImage (>= 3.7)
+  - MarqueeLabel (4.0.5)
+  - NotificationBannerSwift (3.0.6):
+    - MarqueeLabel (~> 4.0.5)
+    - SnapKit (~> 5.0.1)
+  - SDWebImage (5.11.1):
+    - SDWebImage/Core (= 5.11.1)
+  - SDWebImage/Core (5.11.1)
+  - SnapKit (5.0.1)
+
+DEPENDENCIES:
+  - appstore-card-transition
+  - ImageSlideshow/SDWebImage
+  - NotificationBannerSwift (~> 3.0.0)
+
+SPEC REPOS:
+  trunk:
+    - appstore-card-transition
+    - ImageSlideshow
+    - MarqueeLabel
+    - NotificationBannerSwift
+    - SDWebImage
+    - SnapKit
+
+SPEC CHECKSUMS:
+  appstore-card-transition: 660c136cb8a0f0004b2e99e99f1305bfa041f05c
+  ImageSlideshow: be305b54eaf2b2cfc7a7141c7c734605d44dc07d
+  MarqueeLabel: 00cc0bcd087111dca575878b3531af980559707d
+  NotificationBannerSwift: 7021be2338f8f29cf424b0aca43da462bf9e2a1a
+  SDWebImage: a7f831e1a65eb5e285e3fb046a23fcfbf08e696d
+  SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
+
+PODFILE CHECKSUM: 88b61e99767edb59881b19c7c3c0711f7a320669
+
+COCOAPODS: 1.10.1
