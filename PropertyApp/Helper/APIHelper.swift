@@ -49,7 +49,6 @@ class APIHelper: NSObject {
                         completion(nil,propertyInfo)
                         
                     } catch let error {
-                        //FIXME: handle errors
                         print("Error occured while parsing JSON",error)
                     }
                 }

@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		184AC7AF264BB36000B086AD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184AC7AE264BB36000B086AD /* AppDelegate.swift */; };
 		184AC7B1264BB36000B086AD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184AC7B0264BB36000B086AD /* SceneDelegate.swift */; };
-		184AC7B3264BB36000B086AD /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184AC7B2264BB36000B086AD /* ViewController.swift */; };
+		184AC7B3264BB36000B086AD /* PropertyListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 184AC7B2264BB36000B086AD /* PropertyListViewController.swift */; };
 		184AC7B6264BB36000B086AD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 184AC7B4264BB36000B086AD /* Main.storyboard */; };
 		184AC7B8264BB36100B086AD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 184AC7B7264BB36100B086AD /* Assets.xcassets */; };
 		184AC7BB264BB36100B086AD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 184AC7B9264BB36100B086AD /* LaunchScreen.storyboard */; };
@@ -21,7 +21,6 @@
 		18D54FE5265218B300E7E78B /* PropertyCollectionCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D54FE4265218B300E7E78B /* PropertyCollectionCell.swift */; };
 		18D54FE82652203000E7E78B /* PropertyDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D54FE72652203000E7E78B /* PropertyDetailViewController.swift */; };
 		18D54FEE2652612700E7E78B /* PropertyCollectionCellViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D54FED2652612700E7E78B /* PropertyCollectionCellViewModel.swift */; };
-		18D5500026527EB700E7E78B /* CollectionViewLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D54FFF26527EB700E7E78B /* CollectionViewLayout.swift */; };
 		18D550032652B32000E7E78B /* Box.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D550022652B32000E7E78B /* Box.swift */; };
 		18D550152652B6DE00E7E78B /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 18D550142652B6DE00E7E78B /* Extensions.swift */; };
 		472F0EC2F450BA4ABBA9CD99 /* Pods_PropertyApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2DC0A00AC304F9B0C3FCE1F0 /* Pods_PropertyApp.framework */; };
@@ -31,7 +30,7 @@
 		184AC7AB264BB36000B086AD /* PropertyApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PropertyApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		184AC7AE264BB36000B086AD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		184AC7B0264BB36000B086AD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		184AC7B2264BB36000B086AD /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		184AC7B2264BB36000B086AD /* PropertyListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyListViewController.swift; sourceTree = "<group>"; };
 		184AC7B5264BB36000B086AD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		184AC7B7264BB36100B086AD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		184AC7BA264BB36100B086AD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -44,7 +43,6 @@
 		18D54FE4265218B300E7E78B /* PropertyCollectionCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyCollectionCell.swift; sourceTree = "<group>"; };
 		18D54FE72652203000E7E78B /* PropertyDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyDetailViewController.swift; sourceTree = "<group>"; };
 		18D54FED2652612700E7E78B /* PropertyCollectionCellViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PropertyCollectionCellViewModel.swift; sourceTree = "<group>"; };
-		18D54FFF26527EB700E7E78B /* CollectionViewLayout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollectionViewLayout.swift; sourceTree = "<group>"; };
 		18D550022652B32000E7E78B /* Box.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Box.swift; sourceTree = "<group>"; };
 		18D550142652B6DE00E7E78B /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		2DC0A00AC304F9B0C3FCE1F0 /* Pods_PropertyApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_PropertyApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -110,7 +108,7 @@
 		184AC7C6264BB39300B086AD /* ViewController */ = {
 			isa = PBXGroup;
 			children = (
-				184AC7B2264BB36000B086AD /* ViewController.swift */,
+				184AC7B2264BB36000B086AD /* PropertyListViewController.swift */,
 				18D54FE72652203000E7E78B /* PropertyDetailViewController.swift */,
 				184AC7D8264CC21A00B086AD /* Cell */,
 			);
@@ -140,7 +138,6 @@
 				184AC7CF264BC97A00B086AD /* NetworkReachability.swift */,
 				184AC7D2264BC99B00B086AD /* APIHelper.swift */,
 				184AC7D5264BCAC500B086AD /* Constants.swift */,
-				18D54FFF26527EB700E7E78B /* CollectionViewLayout.swift */,
 				18D550022652B32000E7E78B /* Box.swift */,
 				18D550142652B6DE00E7E78B /* Extensions.swift */,
 			);
@@ -287,13 +284,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				184AC7D3264BC99B00B086AD /* APIHelper.swift in Sources */,
-				184AC7B3264BB36000B086AD /* ViewController.swift in Sources */,
+				184AC7B3264BB36000B086AD /* PropertyListViewController.swift in Sources */,
 				18D54FE82652203000E7E78B /* PropertyDetailViewController.swift in Sources */,
 				184AC7CB264BBAD600B086AD /* PropertyListResponse.swift in Sources */,
 				184AC7E5264CCE5500B086AD /* PropertyListViewModel.swift in Sources */,
 				184AC7AF264BB36000B086AD /* AppDelegate.swift in Sources */,
 				18D550032652B32000E7E78B /* Box.swift in Sources */,
-				18D5500026527EB700E7E78B /* CollectionViewLayout.swift in Sources */,
 				184AC7D6264BCAC600B086AD /* Constants.swift in Sources */,
 				18D54FE5265218B300E7E78B /* PropertyCollectionCell.swift in Sources */,
 				18D54FEE2652612700E7E78B /* PropertyCollectionCellViewModel.swift in Sources */,

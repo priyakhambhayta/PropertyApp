@@ -35,6 +35,9 @@ class PropertyDetailViewController: UIViewController {
         self.setupData()
     }
     @IBAction func btnBackTapped(_ sender: UIButton) {
+        
+      //  self.dismissHandler.scrollViewDidScroll(contentScrollView)
+        contentScrollView.setContentOffset(CGPoint(x: 0, y: 110), animated: true)
     }
     
     func setupData() {
@@ -43,17 +46,6 @@ class PropertyDetailViewController: UIViewController {
         self.lblPropertyId.text = self.propertyModel.txtId
         
     }
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
 
 extension PropertyDetailViewController: UIScrollViewDelegate {
@@ -72,7 +64,6 @@ extension PropertyDetailViewController: CardDetailViewController {
     var scrollView: UIScrollView {
         return contentScrollView
     }
-    
     
     var cardContentView: UIView {
         return viewContainer

@@ -22,6 +22,7 @@ class PropertyCollectionCell: UICollectionViewCell {
     @IBOutlet weak var lblCarSpaces: UILabel!
     @IBOutlet weak var svPropertyDetail: UIStackView!
     @IBOutlet weak var lblAddress: UILabel!
+    @IBOutlet weak var lblAgentName: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -31,11 +32,7 @@ class PropertyCollectionCell: UICollectionViewCell {
     override func layoutSubviews() {
         
         super.layoutSubviews()
-        if UIDevice.current.orientation.isLandscape {
-        self.imgAgent.layer.cornerRadius = ((self.contentView.frame.size.height + 24) * 0.122) / 2
-        }else {
-            self.imgAgent.layer.cornerRadius = ((self.contentView.frame.size.height - 24) * 0.122) / 2
-        }
+        self.imgAgent.layer.cornerRadius = (self.contentView.frame.size.height * 0.122) / 2
         self.imgAgent.layer.masksToBounds = true
     }
     
@@ -48,6 +45,7 @@ class PropertyCollectionCell: UICollectionViewCell {
         self.lblRooms.text = viewModel.txtRooms
         self.lblBathrooms.text = viewModel.txtBathrooms
         self.lblCarSpaces.text = viewModel.txtCarSpace
+        self.lblAgentName.text = viewModel.txtAgentName
     }
     
 }

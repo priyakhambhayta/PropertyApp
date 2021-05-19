@@ -10,20 +10,21 @@ public class PropertyListViewModel {
     var isError = Box(false)
     var strErrorMessage = ""
     var strErrorSubMessage = ""
-    
     private(set) var arrPropertyData: [PropertyList]! {
         
         didSet {
             self.bindPropertyListViewModelToController()
         }
     }
-    
     var bindPropertyListViewModelToController : (() -> ()) = {}
     
+    //MARK: - Initializer
     init() {
         
         self.getPropertyList()
     }
+    
+    //MARK: - API Call Methods
     
     func getPropertyList() {
         

@@ -20,6 +20,8 @@ public class PropertyCollectionCellViewModel {
     let urlAgent:URL
     let txtAgentName:String
     
+    //MARK: - Initializers
+    
     init(propertyInfo:PropertyList) {
         
         self.txtId = propertyInfo.id ?? ""
@@ -32,11 +34,11 @@ public class PropertyCollectionCellViewModel {
         self.imgProperty = arrImages
         self.txtTitle = (propertyInfo.property_type ?? "").capitalized
         self.txtAddress = propertyInfo.location?.address ?? ""
-        self.txtRooms = "\(String(describing: propertyInfo.bedrooms!))"
-        self.txtBathrooms = "\(String(describing: propertyInfo.bathrooms!))"
-        self.txtCarSpace = "\(String(describing: propertyInfo.carspaces!))"
+        self.txtRooms = "\(String(describing: (propertyInfo.bedrooms ?? 0)))"
+        self.txtBathrooms = "\(String(describing: (propertyInfo.bathrooms ?? 0)))"
+        self.txtCarSpace = "\(String(describing: (propertyInfo.carspaces ?? 0)))"
         let agentImageUrl = URL(string: (propertyInfo.agent?.avatar?.small?.url)!)
         self.urlAgent = agentImageUrl!
-        self.txtAgentName = propertyInfo.agent?.first_name ?? "" + " " + (propertyInfo.agent?.last_name)! 
+        self.txtAgentName = (propertyInfo.agent?.first_name ?? "") + " " + (propertyInfo.agent?.last_name ?? "")
     }
 }

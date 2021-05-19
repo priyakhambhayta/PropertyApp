@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  PropertyListViewController.swift
 //  PropertyApp
 //
 //  Created by Priya Gajjar on 12/05/21.
@@ -9,7 +9,7 @@ import UIKit
 import AppstoreTransition
 import NotificationBannerSwift
 
-class ViewController: UIViewController {
+class PropertyListViewController: UIViewController {
 
     @IBOutlet weak var cvPropertyList: UICollectionView!
     
@@ -55,7 +55,6 @@ class ViewController: UIViewController {
             }else {
                 self?.callViewModelForUIUpdate()
             }
-            
         }
     }
     
@@ -86,7 +85,7 @@ class ViewController: UIViewController {
     }
 }
 
-extension ViewController: UICollectionViewDelegate {
+extension PropertyListViewController: UICollectionViewDelegate {
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
@@ -94,7 +93,7 @@ extension ViewController: UICollectionViewDelegate {
     }
 }
 
-extension ViewController: UICollectionViewDataSource {
+extension PropertyListViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         
@@ -119,30 +118,32 @@ extension ViewController: UICollectionViewDataSource {
     }
 }
 
-extension ViewController: UICollectionViewDelegateFlowLayout {
+extension PropertyListViewController: UICollectionViewDelegateFlowLayout {
     
     public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
-        let width = self.view.safeAreaLayoutGuide.layoutFrame.width
-        let deviceWidth = self.view.safeAreaLayoutGuide.layoutFrame.width//UIScreen.main.bounds.width
-        let imageHeight = deviceWidth * 2/3
-        let cellHeight = imageHeight + 137//8+33.5+8+31.5+8+40+8
-        return CGSize(width: width, height: cellHeight)
+        return self.calculateCellSize()
     }
     
     public override func willTransition(to newCollection: UITraitCollection, with coordinator: UIViewControllerTransitionCoordinator) {
         
-        if let layout = cvPropertyList.collectionViewLayout as? UICollectionViewFlowLayout {
-            let width = view.safeAreaLayoutGuide.layoutFrame.height
-            let deviceWidth = self.view.safeAreaLayoutGuide.layoutFrame.width//UIScreen.main.bounds.width
-            let imageHeight = deviceWidth * 2/3
-            let cellHeight = imageHeight + 137//8+33.5+8+31.5+8+40+8
-            layout.itemSize = CGSize(width: width, height: cellHeight)
+        if cvPropertyList != nil, let layout = cvPropertyList.collectionViewLayout as? UICollectionViewFlowLayout {
+            
+            layout.itemSize = self.calculateCellSize()
             layout.invalidateLayout()
         }
     }
+    
+    func calculateCellSize() -> CGSize {
+        
+        let width = self.view.safeAreaLayoutGuide.layoutFrame.width
+        let deviceWidth = self.view.safeAreaLayoutGuide.layoutFrame.width
+        let imageHeight = deviceWidth * 2/3
+        let cellHeight = imageHeight + 144 //8+33.5+8+31.5+8+40+8+7
+        return CGSize(width: width, height: cellHeight)
+    }
 }
 
-extension ViewController: CardsViewController {
+extension PropertyListViewController: CardsViewController {
     
 }
