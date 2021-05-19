@@ -15,17 +15,17 @@ class PropertyDetailViewController: UIViewController {
     @IBOutlet weak var imgProperty: ImageSlideshow!
     @IBOutlet weak var lblPropertyId: UILabel!
     @IBOutlet weak var viewContainer: UIView!
-    @IBOutlet weak var btnBack: UIButton!
     
     var propertyModel: PropertyCollectionCellViewModel!
-    var dismissAnimationFinishedAction: (()->())?
+    
+    //MARK: - Life cycle Method
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
         
-        self.btnBack.alpha = 0.0
+        self.lblPropertyId.alpha = 0.0
         view.clipsToBounds = true
         contentScrollView.delegate = self
         
@@ -34,11 +34,8 @@ class PropertyDetailViewController: UIViewController {
         let _ = dismissHandler
         self.setupData()
     }
-    @IBAction func btnBackTapped(_ sender: UIButton) {
-        
-      //  self.dismissHandler.scrollViewDidScroll(contentScrollView)
-        contentScrollView.setContentOffset(CGPoint(x: 0, y: 110), animated: true)
-    }
+    
+    //MARK: - Custom Method
     
     func setupData() {
         
@@ -56,7 +53,6 @@ extension PropertyDetailViewController: UIScrollViewDelegate {
         
         dismissHandler.scrollViewDidScroll(scrollView)
     }
-    
 }
 
 extension PropertyDetailViewController: CardDetailViewController {
@@ -72,14 +68,14 @@ extension PropertyDetailViewController: CardDetailViewController {
     func didFinishPresentAnimationProgress() {
         
         UIView.animate(withDuration: 0.3, animations: {
-            self.btnBack.alpha = 1.0
+            self.lblPropertyId.alpha = 1.0
         })
-        
     }
     
-    func didBeginDismissAnimation()  {
+    func didBeginDismissAnimation() {
+        
         UIView.animate(withDuration: 0.3, animations: {
-                        self.btnBack.alpha = 0.0
+            self.lblPropertyId.alpha = 0.0
         })
     }
 }

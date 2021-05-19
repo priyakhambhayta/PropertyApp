@@ -11,6 +11,7 @@ import NotificationBannerSwift
 
 class PropertyListViewController: UIViewController {
 
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var cvPropertyList: UICollectionView!
     
     private var transition: CardTransition?
@@ -25,26 +26,14 @@ class PropertyListViewController: UIViewController {
         self.setupView()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        
-        super.viewDidAppear(animated)
-        let layout = (cvPropertyList.collectionViewLayout as! UICollectionViewFlowLayout)
-        let aspect: CGFloat = 1.272
-        let width = UIScreen.main.bounds.width
-        layout.itemSize = CGSize(width:width, height: width * aspect)
-        layout.minimumLineSpacing = 0
-        layout.minimumInteritemSpacing = 0
-    }
-    
     //MARK: - Custom Methods
     
     func setupView() {
         
+        self.title = PROPERTY_LIST_TITLE
         self.cvPropertyList.dataSource = self
         self.cvPropertyList.delegate = self
-        
         self.propertyModel = PropertyListViewModel()
-        
         self.propertyModel.isError.bind { [weak self] isError in
             
             if isError == true {
@@ -53,6 +42,7 @@ class PropertyListViewController: UIViewController {
                     self?.showErrorBanner(title: self?.propertyModel.strErrorMessage ?? "", subTitle: self?.propertyModel.strErrorSubMessage ?? "")
                 }
             }else {
+                
                 self?.callViewModelForUIUpdate()
             }
         }
@@ -64,6 +54,7 @@ class PropertyListViewController: UIViewController {
             
             DispatchQueue.main.async {
                 
+                self.activityIndicator.stopAnimating()
                 self.cvPropertyList.reloadData()
             }
         }
@@ -71,8 +62,8 @@ class PropertyListViewController: UIViewController {
     
     private func showTransition(indexPath: IndexPath, bottomDismiss: Bool = false) {
 
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let viewController = storyboard.instantiateViewController(withIdentifier: "PropertyDetailViewController") as! PropertyDetailViewController
+        let storyboard = UIStoryboard(name: MAIN_STORYBOARD, bundle: nil)
+        let viewController = storyboard.instantiateViewController(withIdentifier: PROPERTY_DETAIL_SCREEN) as! PropertyDetailViewController
         viewController.propertyModel = PropertyCollectionCellViewModel(propertyInfo: self.propertyModel.arrPropertyData[indexPath.item])
         let cell = cvPropertyList.cellForItem(at: indexPath) as! CardCollectionViewCell
         cell.settings.isEnabledBottomClose = bottomDismiss
@@ -108,17 +99,20 @@ extension PropertyListViewController: UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "propertyCollectionCell", for: indexPath) as! PropertyCollectionCell
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: PROPERTY_LIST_CELL_ID, for: indexPath) as! PropertyCollectionCell
         
         let propertyInfo = propertyModel.arrPropertyData[indexPath.row]
         let viewModel = PropertyCollectionCellViewModel(propertyInfo: propertyInfo)
         cell.setupData(viewModel: viewModel)
+        cell.delegate = self
         
         return cell
     }
 }
 
 extension PropertyListViewController: UICollectionViewDelegateFlowLayout {
+    
+    //MARK: - UICollectionViewDelegateFlowLayout Method
     
     public func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         
@@ -134,6 +128,8 @@ extension PropertyListViewController: UICollectionViewDelegateFlowLayout {
         }
     }
     
+    //MARK: - Custom Method
+    
     func calculateCellSize() -> CGSize {
         
         let width = self.view.safeAreaLayoutGuide.layoutFrame.width
@@ -141,6 +137,15 @@ extension PropertyListViewController: UICollectionViewDelegateFlowLayout {
         let imageHeight = deviceWidth * 2/3
         let cellHeight = imageHeight + 144 //8+33.5+8+31.5+8+40+8+7
         return CGSize(width: width, height: cellHeight)
+    }
+}
+
+extension PropertyListViewController: PropertyCollectionCellDelegate {
+    
+    func imageTapped(atCell: PropertyCollectionCell) {
+        
+        let indexPath = self.cvPropertyList.indexPath(for: atCell)
+        collectionView(self.cvPropertyList, didSelectItemAt: indexPath!)
     }
 }
 

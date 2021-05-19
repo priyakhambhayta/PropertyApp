@@ -9,6 +9,11 @@ import UIKit
 import ImageSlideshow
 import AppstoreTransition
 
+protocol PropertyCollectionCellDelegate {
+    
+    func imageTapped(atCell:PropertyCollectionCell)
+}
+
 class PropertyCollectionCell: UICollectionViewCell {
     
     @IBOutlet weak var imgProperty: ImageSlideshow!
@@ -23,6 +28,7 @@ class PropertyCollectionCell: UICollectionViewCell {
     @IBOutlet weak var svPropertyDetail: UIStackView!
     @IBOutlet weak var lblAddress: UILabel!
     @IBOutlet weak var lblAgentName: UILabel!
+    var delegate:PropertyCollectionCellDelegate!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -46,8 +52,15 @@ class PropertyCollectionCell: UICollectionViewCell {
         self.lblBathrooms.text = viewModel.txtBathrooms
         self.lblCarSpaces.text = viewModel.txtCarSpace
         self.lblAgentName.text = viewModel.txtAgentName
+        
+        let recognizer = UITapGestureRecognizer(target: self, action: #selector(imageTapped))
+        self.imgProperty.scrollView.addGestureRecognizer(recognizer)
     }
     
+    @objc func imageTapped() {
+        
+        self.delegate.imageTapped(atCell: self)
+    }
 }
 
 extension PropertyCollectionCell {

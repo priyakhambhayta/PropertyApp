@@ -150,7 +150,7 @@ open class ImageSlideshowItem: UIScrollView, UIScrollViewDelegate {
                     }
                 }
                 self?.activityIndicator?.hide()
-                self?.loadFailed = image == nil
+                //self?.loadFailed = image == nil
                 self?.isLoading = false
 
                 self?.setNeedsLayout()

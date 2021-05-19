@@ -168,6 +168,10 @@
                                     </collectionViewCell>
                                 </cells>
                             </collectionView>
+                            <activityIndicatorView opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="but-FD-hOb">
+                                <rect key="frame" x="197" y="438" width="20" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="CV4-hA-jvk"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -180,6 +184,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="P3y-iX-Sa0"/>
                     <connections>
+                        <outlet property="activityIndicator" destination="but-FD-hOb" id="9TU-ZF-D2Q"/>
                         <outlet property="cvPropertyList" destination="cuz-wS-mQY" id="naq-1H-NWE"/>
                     </connections>
                 </viewController>
@@ -208,16 +213,6 @@
                                                     <constraint firstAttribute="width" secondItem="Tgx-jh-dbv" secondAttribute="height" multiplier="3:2" id="oTX-wm-5fa"/>
                                                 </constraints>
                                             </view>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0Yx-Pr-h2m">
-                                                <rect key="frame" x="20" y="20.5" width="40" height="40"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                                <color key="tintColor" systemColor="systemGray2Color"/>
-                                                <inset key="contentEdgeInsets" minX="0.0" minY="0.0" maxX="40" maxY="40"/>
-                                                <state key="normal" backgroundImage="arrow.left.circle.fill" catalog="system"/>
-                                                <connections>
-                                                    <action selector="btnBackTapped:" destination="bfi-x0-Bfl" eventType="touchUpInside" id="7Hi-YZ-7Kh"/>
-                                                </connections>
-                                            </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rjs-sj-whm">
                                                 <rect key="frame" x="20" y="284" width="42" height="21"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -227,7 +222,6 @@
                                         </subviews>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <constraints>
-                                            <constraint firstItem="0Yx-Pr-h2m" firstAttribute="leading" secondItem="hPs-NS-LKJ" secondAttribute="leading" constant="20" id="9i7-Cf-HwY"/>
                                             <constraint firstItem="rjs-sj-whm" firstAttribute="top" secondItem="Tgx-jh-dbv" secondAttribute="bottom" constant="8" symbolic="YES" id="GlO-eC-oI6"/>
                                             <constraint firstItem="Tgx-jh-dbv" firstAttribute="leading" secondItem="hPs-NS-LKJ" secondAttribute="leading" id="IDw-Lb-Jwq"/>
                                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="rjs-sj-whm" secondAttribute="trailing" constant="20" symbolic="YES" id="W33-Vm-Gnu"/>
@@ -235,7 +229,6 @@
                                             <constraint firstItem="Tgx-jh-dbv" firstAttribute="top" secondItem="hPs-NS-LKJ" secondAttribute="top" id="eSu-kq-DXF"/>
                                             <constraint firstItem="rjs-sj-whm" firstAttribute="leading" secondItem="hPs-NS-LKJ" secondAttribute="leading" constant="20" symbolic="YES" id="gy3-V3-UMG"/>
                                             <constraint firstAttribute="bottom" secondItem="rjs-sj-whm" secondAttribute="bottom" constant="20" symbolic="YES" id="q6u-nr-CIH"/>
-                                            <constraint firstItem="0Yx-Pr-h2m" firstAttribute="top" secondItem="hPs-NS-LKJ" secondAttribute="top" constant="20" id="tGy-DI-73B"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -259,7 +252,6 @@
                     </view>
                     <navigationItem key="navigationItem" id="2gp-AB-4b9"/>
                     <connections>
-                        <outlet property="btnBack" destination="0Yx-Pr-h2m" id="vUP-gC-Q11"/>
                         <outlet property="contentScrollView" destination="036-uu-E4l" id="wp3-ay-jhl"/>
                         <outlet property="imgProperty" destination="Tgx-jh-dbv" id="KvI-kZ-YSg"/>
                         <outlet property="lblPropertyId" destination="rjs-sj-whm" id="tjL-OK-Fdv"/>
@@ -293,7 +285,6 @@
         <image name="Bathrooms" width="64" height="64"/>
         <image name="Bedrooms" width="64" height="64"/>
         <image name="CarSpace" width="64" height="64"/>
-        <image name="arrow.left.circle.fill" catalog="system" width="128" height="121"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
