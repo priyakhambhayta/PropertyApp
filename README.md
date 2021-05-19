@@ -38,7 +38,7 @@ public func loadImage() {
 				}
 			}
 			self?.activityIndicator?.hide()
-			self?.loadFailed = image == nil
+			//self?.loadFailed = image == nil
 			self?.isLoading = false
 			self?.setNeedsLayout()
 		}
